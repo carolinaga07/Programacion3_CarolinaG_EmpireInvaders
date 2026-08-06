@@ -10,7 +10,7 @@ public class App extends Application{
 
     @Override
     public void start(Stage stage) throws Exception {
-       FXMLLoader loader = new FXMLLoader(getClass().getResource(STYLESHEET_CASPIAN));
+       FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/PantallaPrincipal.fxml"));
        Scene scene = new Scene(loader.load());
        stage.setTitle("Empire Invaders");
        stage.setScene(scene);
