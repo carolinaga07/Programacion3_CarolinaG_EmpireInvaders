@@ -38,6 +38,7 @@ public class PantallaPrincipalController  {
         lblBoton.setCursor(Cursor.HAND);
 
         lblBoton.setOnMouseClicked(event ->{
+            
 
         });
     }
