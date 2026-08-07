@@ -43,4 +43,8 @@ public class Enemigo {
         this.vida = vida;
     }
 
+    public boolean esJefe(){
+        return false;
+    }
+
 }

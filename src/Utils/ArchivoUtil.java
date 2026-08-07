@@ -19,10 +19,10 @@ public class ArchivoUtil {
     }
 
     public static boolean colision(Rayo rayo, Jugador jugador){
-        return rayo.getX() < Jugador.getX() + tamanoE &&
-        rayo.getX() + tamanoR > enemigo.getX() &&
-        rayo.getY() < enemigo.getY() + tamanoE &&
-        rayo.getY() + tamanoR > enemigo.getY();
+        return rayo.getX() < jugador.getX() + tamanoJ &&
+        rayo.getX() + tamanoR > jugador.getX() &&
+        rayo.getY() < jugador.getY() + tamanoJ &&
+        rayo.getY() + tamanoR > jugador.getY();
     }
 
     

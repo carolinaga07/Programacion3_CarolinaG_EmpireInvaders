@@ -6,5 +6,10 @@ public class Jefe extends Enemigo {
         super(x, y);
        setVida(20);
     }
+
+    @Override
+    public boolean esJefe(){
+        return true;
+    }
     
 }
