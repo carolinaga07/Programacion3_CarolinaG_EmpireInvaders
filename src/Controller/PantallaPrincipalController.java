@@ -1,11 +1,15 @@
 package Controller;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Font;
 
-public class PantallaPrincipalController {
+public class PantallaPrincipalController implements Initializable {
 
     @FXML
     private ImageView ivEnemigo1;
@@ -17,16 +21,18 @@ public class PantallaPrincipalController {
     private Label lblBoton2;
 
     @FXML
-    public void initialize(){
-         Font miFuente = Font.loadFont((getClass().getResourceAsStream("Resources/font/pixelFont.ttf")), 18);
+    private Label lblEslogan;
 
-         if(miFuente != null){
-            lblBoton.setFont(miFuente);
-            lblBoton2.setFont(miFuente);
-         }
-         else{
-            System.out.println("Error: no se pudo cargar el archivo de la fuente.");
-         }
+
+    
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        Font miFuente = Font.loadFont(getClass().getResourceAsStream("/fonts/PressStart2P-Regular.ttf"), 36);
+        lblBoton.setFont(miFuente);
+        lblBoton2.setFont(miFuente);
+        lblEslogan.setFont(miFuente);
     }
+    
     
 }

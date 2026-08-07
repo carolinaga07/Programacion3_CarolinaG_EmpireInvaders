@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="486.0" prefWidth="734.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="486.0" prefWidth="734.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PantallaPrincipalController">
    <children>
       <ImageView fitHeight="506.0" fitWidth="970.0" layoutX="-23.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -23,9 +23,9 @@
             <Image url="@../Resources/img/IMG_0279.png" />
          </image>
       </ImageView>
-      <Label layoutX="248.0" layoutY="230.0" text="&quot;Una amenaza que viene de muy, muy lejos.&quot;" textFill="WHITE">
+      <Label fx:id="lblEslogan" layoutX="248.0" layoutY="230.0" text="&quot;Una amenaza que viene de muy, muy lejos.&quot;" textFill="WHITE">
          <font>
-            <Font size="14.0" />
+            <Font name="Book Antiqua" size="14.0" />
          </font>
       </Label>
       <Label fx:id="lblBoton" layoutX="337.0" layoutY="314.0" text="Iniciar Juego" textFill="WHITE">
