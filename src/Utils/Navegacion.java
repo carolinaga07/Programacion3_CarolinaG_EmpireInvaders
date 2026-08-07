@@ -8,13 +8,13 @@ public class Navegacion {
 
 
        
-    public static <T> T abrirVentana(String rutaFXML, String titulo){
+    public static <T> T cambiarEscena(String rutaFXML, String titulo, Stage stage){
 
         try {
             FXMLLoader loader = new FXMLLoader(Navegacion.class.getResource(rutaFXML));
 
             Scene scene = new Scene(loader.load());
-            Stage stage = new Stage();
+           
             stage.setTitle(titulo);
             stage.setScene(scene);
             stage.show();

@@ -2,15 +2,22 @@ package Controller;
 
 
 
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import Main.App;
+import Utils.Navegacion;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
 
-public class PantallaPrincipalController  {
+public class PantallaPrincipalController implements Initializable {
 
     @FXML
     private ImageView ivEnemigo1;
@@ -38,7 +45,8 @@ public class PantallaPrincipalController  {
         lblBoton.setCursor(Cursor.HAND);
 
         lblBoton.setOnMouseClicked(event ->{
-            
+            PantallaJuegoController controller = Navegacion.cambiarEscena("/View/PantallaJuego.fxml", "Empire Invaders", App.stagePrincipal);
+
 
         });
     }
