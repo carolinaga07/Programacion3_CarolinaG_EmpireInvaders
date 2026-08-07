@@ -1,15 +1,16 @@
 package Controller;
 
-import java.net.URL;
-import java.util.ResourceBundle;
 
+
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import javafx.scene.text.Font;
+import javafx.util.Duration;
 
-public class PantallaPrincipalController implements Initializable {
+
+public class PantallaPrincipalController  {
 
     @FXML
     private ImageView ivEnemigo1;
@@ -23,16 +24,25 @@ public class PantallaPrincipalController implements Initializable {
     @FXML
     private Label lblEslogan;
 
-
-    
+    @FXML
+    public void initialize(){
+        TranslateTransition animacion = new TranslateTransition(Duration.seconds(1.2), ivEnemigo1);
+        animacion.setByY(-25);
+        animacion.setAutoReverse(true);
+        animacion.setCycleCount(TranslateTransition.INDEFINITE);
+        animacion.play();
+    }
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        Font miFuente = Font.loadFont(getClass().getResourceAsStream("/fonts/PressStart2P-Regular.ttf"), 36);
-        lblBoton.setFont(miFuente);
-        lblBoton2.setFont(miFuente);
-        lblEslogan.setFont(miFuente);
+    public void initialize(URL location, ResourceBundle resources){
+        lblBoton.setCursor(Cursor.HAND);
+
+        lblBoton.setOnMouseClicked(event ->{
+
+        });
     }
+
     
+
     
 }

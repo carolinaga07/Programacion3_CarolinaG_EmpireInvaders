@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="486.0" prefWidth="734.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PantallaPrincipalController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="486.0" prefWidth="734.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PantallaPrincipalController">
    <children>
       <ImageView fitHeight="506.0" fitWidth="970.0" layoutX="-23.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -18,24 +18,24 @@
             <Image url="@../Resources/img/logoEmpireInvaders.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="ivEnemigo1" fitHeight="83.0" fitWidth="54.0" layoutX="211.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ivEnemigo1" fitHeight="83.0" fitWidth="54.0" layoutX="259.0" layoutY="299.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Resources/img/IMG_0279.png" />
          </image>
       </ImageView>
-      <Label fx:id="lblEslogan" layoutX="248.0" layoutY="230.0" text="&quot;Una amenaza que viene de muy, muy lejos.&quot;" textFill="WHITE">
+      <Label fx:id="lblEslogan" layoutX="139.0" layoutY="229.0" text="&quot;Una amenaza que viene de muy, muy lejos.&quot;" textFill="WHITE">
          <font>
-            <Font name="Book Antiqua" size="14.0" />
+            <Font name="Monospaced Regular" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblBoton" layoutX="337.0" layoutY="314.0" text="Iniciar Juego" textFill="WHITE">
+      <Label fx:id="lblBoton" layoutX="327.0" layoutY="315.0" text="Iniciar Juego" textFill="WHITE">
          <font>
-            <Font size="18.0" />
+            <Font name="Courier New" size="18.0" />
          </font>
       </Label>
       <Label fx:id="lblBoton2" layoutX="370.0" layoutY="380.0" text="Salir" textFill="WHITE">
          <font>
-            <Font size="18.0" />
+            <Font name="Courier New" size="18.0" />
          </font>
       </Label>
    </children>
