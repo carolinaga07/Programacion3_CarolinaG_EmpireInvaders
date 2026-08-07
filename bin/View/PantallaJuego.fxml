@@ -2,12 +2,36 @@
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PantallaJuegoController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="486.0" prefWidth="734.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PantallaJuegoController">
    <children>
-      <Label layoutX="65.0" layoutY="14.0" text="Label" />
-      <Label layoutX="286.0" layoutY="14.0" text="Label" />
-      <Label layoutX="507.0" layoutY="14.0" text="Label" />
+      <Label layoutX="67.0" layoutY="22.0" text="Puntaje:">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label layoutX="327.0" layoutY="22.0" text="Nivel:">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label layoutX="609.0" layoutY="22.0" text="Vidas:">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label fx:id="lblPuntaje" layoutX="122.0" layoutY="22.0" text="Label">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblNivel" layoutX="374.0" layoutY="22.0" text="Label">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblVida" layoutX="649.0" layoutY="22.0" text="Label">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
