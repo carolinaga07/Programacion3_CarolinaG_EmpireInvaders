@@ -40,7 +40,13 @@ public class PantallaJuegoController {
         jugador = new Jugador(347, 445);
 
         Image fondo = new Image( getClass().getResourceAsStream ("/Resources/img/fondojuego.jpg"));
-        SpritesJuego sprites = new SpritesJuego(fondo);
+        Image jugadorGif = new Image(getClass().getResourceAsStream("/Resources/img/milleniumFalcon.gif"));
+        Image enemigo1Gif = new Image(getClass().getResourceAsStream("/Resources/img/enemigo1.gif"));
+        Image enemigo2Gif = new Image(getClass().getResourceAsStream("/Resources/img/enemigo2.gif"));
+        Image jefeGif = new Image(getClass().getResourceAsStream("/Resources/img/estrelladelamuerteCompleta.gif"));
+
+
+        SpritesJuego sprites = new SpritesJuego(fondo, jugadorGif, enemigo1Gif, enemigo2Gif, jefeGif, rootPane);
         Niveles niveles = new Niveles();
 
         funcionamientoJuego = new FuncionamientoJuego(jugador, niveles, sprites, canvaJuego.getGraphicsContext2D(), this, canvaJuego.getWidth(), canvaJuego.getHeight());
