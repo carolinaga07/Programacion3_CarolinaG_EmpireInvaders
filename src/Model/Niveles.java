@@ -48,7 +48,7 @@ public class Niveles {
    }
 
    public boolean esNivelFinal(){
-     return nivelActual == 3 || (nivelActual == 3 && oleadaActual < 2);
+     return nivelActual == 3 && oleadaActual == 2;
    }
 
    public int getNivelActual(){

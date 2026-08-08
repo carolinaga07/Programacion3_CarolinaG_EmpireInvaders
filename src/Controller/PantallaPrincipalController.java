@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 import Main.App;
 import Utils.Navegacion;
 import javafx.animation.TranslateTransition;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
@@ -46,6 +47,10 @@ public class PantallaPrincipalController implements Initializable {
             PantallaJuegoController controller = Navegacion.cambiarEscena("/View/PantallaJuego.fxml", "Empire Invaders", App.stagePrincipal);
 
 
+        });
+
+        lblBoton2.setOnMouseClicked(event ->{
+            Platform.exit();
         });
     }
 

@@ -36,9 +36,9 @@ public class PantallaJuegoController {
 
 
     @FXML void initialize(){
-        jugador = new Jugador(275, 550);
+        jugador = new Jugador(347, 445);
 
-        Image fondo = new Image( new File("Resources/img/fondojuego.jpg").toURI().toString());
+        Image fondo = new Image( getClass().getResourceAsStream ("/Resources/img/fondojuego.jpg"));
         SpritesJuego sprites = new SpritesJuego(fondo);
         Niveles niveles = new Niveles();
 
