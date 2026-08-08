@@ -71,6 +71,13 @@ public class FormacionEnemigo {
     
     }  
 
+    public boolean esFormacionJ(){
+        if(enemigos.isEmpty()){
+            return false;
+        }
+        return enemigos.get(0).esJefe();
+    }
+
     public List<Enemigo> getEnemigos(){
         return enemigos;
     }

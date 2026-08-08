@@ -5,18 +5,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="486.0" prefWidth="734.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PantallaJuegoController">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="486.0" prefWidth="669.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PantallaJuegoController">
    <children>
-      <Canvas fx:id="canvaJuego" height="496.0" layoutY="-3.0" width="734.0" />
+      <Canvas fx:id="canvaJuego" height="495.0" layoutY="-3.0" width="669.0" />
       <Label layoutX="67.0" layoutY="22.0" text="Puntaje:" textFill="WHITE">
          <font>
-            <Font name="Monospaced Regular" size="14.0" />
+            <Font name="Stencil" size="14.0" />
          </font></Label>
-      <Label layoutX="327.0" layoutY="22.0" text="Nivel:" textFill="WHITE">
+      <Label layoutX="313.0" layoutY="23.0" text="Nivel:" textFill="WHITE">
          <font>
-            <Font size="14.0" />
+            <Font name="Stencil" size="14.0" />
          </font></Label>
-      <Label layoutX="609.0" layoutY="22.0" text="Vidas:" textFill="#fffcfc">
+      <Label layoutX="548.0" layoutY="22.0" text="Vidas:" textFill="#fffcfc">
          <font>
             <Font size="14.0" />
          </font></Label>
@@ -25,12 +25,12 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="lblNivel" layoutX="374.0" layoutY="22.0" text="Label" textFill="WHITE">
+      <Label fx:id="lblNivel" layoutX="367.0" layoutY="22.0" text="Label" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="lblVida" layoutX="649.0" layoutY="22.0" text="Label" textFill="WHITE">
+      <Label fx:id="lblVida" layoutX="610.0" layoutY="21.0" text="Label" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>

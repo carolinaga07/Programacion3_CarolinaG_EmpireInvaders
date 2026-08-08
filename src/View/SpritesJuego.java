@@ -75,6 +75,13 @@ public class SpritesJuego {
         gc.drawImage(fondo, 0, fondoOffsetY, ancho, alto);
     }
 
+    public void limpiarVistaEnemigos(){
+        for(ImageView vista : vistaEnemigos.values()){
+            pane.getChildren().remove(vista);
+        }
+        vistaEnemigos.clear();
+    }
+
     private void actualizarVistaEnemigos(FormacionEnemigo formacion){
         int indice = 0;
         for(Enemigo e: formacion.getEnemigos()){
@@ -96,10 +103,10 @@ public class SpritesJuego {
                     tamano = 200;
                 }else if(indice % 2 == 0){
                     gif = enemigo1Gif;
-                    tamano = 55;
+                    tamano = 45;
                 }else{
                     gif = enemigo2Gif;
-                    tamano = 55;
+                    tamano = 45;
                 }
                 vista = new ImageView(gif);
                 vista.setFitWidth(tamano);

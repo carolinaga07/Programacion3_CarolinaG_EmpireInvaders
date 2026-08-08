@@ -5,6 +5,7 @@ public class Jugador {
     private double y;
     private int vidas;
     private double velocidad;
+    private static final double tamanoS = 130;
    
    
     public Jugador(double x, double y) {
@@ -16,13 +17,16 @@ public class Jugador {
 
     public void moverIzquierda(){
         x -= velocidad;
+        if(x < 0){
+            x = 0;
+        }
     }
 
     public void moverDerecha(double limite){
         x += velocidad;
 
-        if(x > limite){
-            x = limite;
+        if(x > limite - tamanoS){
+            x = limite - tamanoS;
         }
     }
 

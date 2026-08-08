@@ -60,7 +60,7 @@ public class FuncionamientoJuego extends AnimationTimer {
     }
 
     public void dispararJugador(){
-        RayosJugador.add(new Rayo(jugador.getX() + 15, jugador.getY(), -6, false));
+        RayosJugador.add(new Rayo(jugador.getX() + 65, jugador.getY(), -6, false));
     }
 
     private void moverJugador(){
@@ -73,7 +73,8 @@ public class FuncionamientoJuego extends AnimationTimer {
     }
 
     public void actualizar(long now){
-        formacion.actualizar(0, ancho);
+        double margenDer = formacion.esFormacionJ() ? 120: 50;
+        formacion.actualizar(0, ancho - margenDer);
         moverRayos();
         dispararInvasores(now);
         detectarColisiones();
@@ -157,6 +158,7 @@ public class FuncionamientoJuego extends AnimationTimer {
         }
         if(niveles.hayMasNiveles()){
             niveles.siguienteOleada();
+            sprites.limpiarVistaEnemigos();
             formacion = niveles.Formaciones(50, 50);
         }else{
             stop();
