@@ -1,8 +1,10 @@
 package Controller;
 
 import Engine.FuncionamientoJuego;
+import Main.App;
 import Model.Jugador;
 import Model.Niveles;
+import Utils.Navegacion;
 import View.SpritesJuego;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -99,6 +101,7 @@ public class PantallaJuegoController {
         lblVida.setText(String.valueOf(vidas));
     }
 
+   
 
 
     

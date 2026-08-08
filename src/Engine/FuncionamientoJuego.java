@@ -12,7 +12,10 @@ import Model.Rayo;
 import Utils.ArchivoUtil;
 import View.SpritesJuego;
 import javafx.animation.AnimationTimer;
+import javafx.application.Platform;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 
 public class FuncionamientoJuego extends AnimationTimer {
 
@@ -162,8 +165,11 @@ public class FuncionamientoJuego extends AnimationTimer {
             formacion = niveles.Formaciones(50, 50);
         }else{
             stop();
-            //pantalla victoria
+            
         }
-    }
+
+       
+    } 
+   
 
 }
