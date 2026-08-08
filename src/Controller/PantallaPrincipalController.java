@@ -31,17 +31,15 @@ public class PantallaPrincipalController implements Initializable {
     @FXML
     private Label lblEslogan;
 
-    @FXML
-    public void initialize(){
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources){
         TranslateTransition animacion = new TranslateTransition(Duration.seconds(1.2), ivEnemigo1);
         animacion.setByY(-25);
         animacion.setAutoReverse(true);
         animacion.setCycleCount(TranslateTransition.INDEFINITE);
         animacion.play();
-    }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources){
         lblBoton.setCursor(Cursor.HAND);
 
         lblBoton.setOnMouseClicked(event ->{

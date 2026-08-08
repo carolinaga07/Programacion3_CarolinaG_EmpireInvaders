@@ -34,7 +34,7 @@ public class FuncionamientoJuego extends AnimationTimer {
 
 
     public FuncionamientoJuego(Jugador jugador, Niveles niveles, SpritesJuego sprites,
-            GraphicsContext gc,  double ancho, double alto, PantallaJuegoController controller) {
+            GraphicsContext gc, PantallaJuegoController controller,  double ancho, double alto) {
         this.jugador = jugador;
         this.formacion = niveles.Formaciones(50, 50);
         this.niveles = niveles;
@@ -61,6 +61,15 @@ public class FuncionamientoJuego extends AnimationTimer {
 
     public void dispararJugador(){
         RayosJugador.add(new Rayo(jugador.getX() + 15, jugador.getY(), -6, false));
+    }
+
+    private void moverJugador(){
+        if(controller.esTeclaIzq()){
+            jugador.moverIzquierda();
+        }
+        if(controller.esTeclaDer()){
+            jugador.moverDerecha(ancho);
+        }
     }
 
     public void actualizar(long now){

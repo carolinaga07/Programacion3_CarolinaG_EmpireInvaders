@@ -25,7 +25,7 @@ public class SpritesJuego {
         dibujarFondo(gc, ancho, alto);
         dibujarJugador(gc, jugador);
         dibujarEnemigos(gc, formacion);
-        dibujarTablaP(gc, puntaje, vidas);
+      
 
 
     }

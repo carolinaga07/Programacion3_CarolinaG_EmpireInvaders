@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
+import java.io.File;
 
 public class PantallaJuegoController {
 
@@ -37,14 +38,14 @@ public class PantallaJuegoController {
     @FXML void initialize(){
         jugador = new Jugador(275, 550);
 
-        Image fondo = new Image(getClass().getResourceAsStream("/img/fondojuego.jpg"));
+        Image fondo = new Image( new File("Resources/img/fondojuego.jpg").toURI().toString());
         SpritesJuego sprites = new SpritesJuego(fondo);
         Niveles niveles = new Niveles();
 
-        funcionamientoJuego = new FuncionamientoJuego(jugador, niveles, sprites, canvaJuego.getGraphicsContext2D(), canvaJuego.getWidth(), canvaJuego.getHeight());
+        funcionamientoJuego = new FuncionamientoJuego(jugador, niveles, sprites, canvaJuego.getGraphicsContext2D(), this, canvaJuego.getWidth(), canvaJuego.getHeight());
 
-        rootPane.setOnKeyPressed(this:manejarTeclaPesionada);
-        rootPane.setOnKeyReleased(this:manejarTeclaSoltada);
+        rootPane.setOnKeyPressed(this::manejarTeclaPresionada);
+        rootPane.setOnKeyReleased(this::manejarTeclaSoltada);
 
         rootPane.requestFocus();
         funcionamientoJuego.start();
@@ -56,6 +57,19 @@ public class PantallaJuegoController {
             teclaIzq = false;
         }
 
+        if(evento.getCode() == KeyCode.RIGHT){
+            teclaDer = false;
+        }
+
+        if(evento.getCode() == KeyCode.SPACE){
+            funcionamientoJuego.dispararJugador();
+        }
+    }
+
+    private void manejarTeclaSoltada(javafx.scene.input.KeyEvent evento){
+        if(evento.getCode() == KeyCode.LEFT){
+            teclaIzq = false;
+        }
         if(evento.getCode() == KeyCode.RIGHT){
             teclaDer = false;
         }
@@ -71,9 +85,9 @@ public class PantallaJuegoController {
     }
 
     public void actualizar(int nivel, int puntaje, int vidas){
-        lblNivel.setText("Nivel: " + nivel);
-        lblPuntaje.setText("Puntos: " + puntaje);
-        lblVida.setText("Vidas:" + vidas);
+        lblNivel.setText(String.valueOf(nivel));
+        lblPuntaje.setText(String.valueOf(puntaje));
+        lblVida.setText(String.valueOf(vidas));
     }
 
 
