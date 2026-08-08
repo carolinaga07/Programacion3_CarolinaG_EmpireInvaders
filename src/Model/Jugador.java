@@ -11,7 +11,7 @@ public class Jugador {
     public Jugador(double x, double y) {
         this.x = x;
         this.y = y;
-        this.vidas = 3;
+        this.vidas = 5;
         this.velocidad = 5;
     }
 

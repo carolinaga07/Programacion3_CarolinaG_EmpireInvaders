@@ -12,6 +12,13 @@ public class Niveles {
       this.oleadaActual = 1;
    }
 
+   private int maxOleadas(int nivel){
+    if(nivel == 3){
+        return 3;
+    }
+    return 2;
+   }
+
 
    public FormacionEnemigo Formaciones(double xInicial, double yInicial){
 
@@ -35,8 +42,8 @@ public class Niveles {
    }
 
    public void siguienteOleada(){
-    if(nivelActual == 3 && oleadaActual == 1){
-        oleadaActual = 2;
+    if(oleadaActual < maxOleadas(nivelActual)){
+        oleadaActual++;
     } else {
         siguienteNivel();
         oleadaActual =1;

@@ -8,11 +8,13 @@ import Model.Enemigo;
 import Model.FormacionEnemigo;
 import Model.Jugador;
 import Model.Rayo;
+import javafx.animation.PauseTransition;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
+import javafx.util.Duration;
 
 
 public class SpritesJuego {
@@ -25,14 +27,16 @@ public class SpritesJuego {
     private Image enemigo1Gif;
     private Image enemigo2Gif;
     private Image jefeGif;
+    private Image jefeDestruidoGif;
     private Map<Enemigo, ImageView> vistaEnemigos;
 
-    public SpritesJuego(Image fondo, Image jugadorGif, Image enemigo1Gif, Image enemigo2Gif, Image jefeGif, AnchorPane pane){
+    public SpritesJuego(Image fondo, Image jugadorGif, Image enemigo1Gif, Image enemigo2Gif, Image jefeGif, Image jefeDestruidoGif, AnchorPane pane){
         this.fondo = fondo;
         this.pane = pane;
         this.enemigo1Gif = enemigo1Gif;
         this.enemigo2Gif = enemigo2Gif;
         this.jefeGif = jefeGif;
+        this.jefeDestruidoGif = jefeDestruidoGif;
         this.vistaEnemigos = new HashMap<>();
 
         jugadorView = new ImageView(jugadorGif);
@@ -86,9 +90,14 @@ public class SpritesJuego {
         int indice = 0;
         for(Enemigo e: formacion.getEnemigos()){
             if(!e.estaVivo()){
-                ImageView vista = vistaEnemigos.remove(e);
+                ImageView vista = vistaEnemigos.get(e);
                 if(vista != null){
+                    if(e.esJefe()){
+                        mostrarExplosionJefe(e, vista);
+                    }else{
                     pane.getChildren().remove(vista);
+                    vistaEnemigos.remove(e);
+                    }
                 }
                 indice++;
                 continue;
@@ -118,6 +127,11 @@ public class SpritesJuego {
             vista.setLayoutY(e.getY());
             indice++;
         }
+    }
+
+    private void mostrarExplosionJefe(Enemigo e, ImageView vista){
+        vista.setImage(jefeDestruidoGif);
+        vistaEnemigos.remove(e);
     }
     
 }
