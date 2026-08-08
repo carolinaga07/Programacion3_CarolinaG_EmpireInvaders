@@ -54,7 +54,7 @@ public class FuncionamientoJuego extends AnimationTimer {
     public void handle(long now) {
         moverJugador();
         actualizar(now);
-        sprites.render(gc, jugador, formacion, puntaje, jugador.getVidas());
+        sprites.render(gc, jugador, formacion, RayosJugador, RayoEnemigo, puntaje, puntaje);
         controller.actualizar(niveles.getNivelActual(), puntaje, jugador.getVidas());
         
     }

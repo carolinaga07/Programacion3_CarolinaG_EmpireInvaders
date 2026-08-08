@@ -42,7 +42,10 @@ public class FormacionEnemigo {
             if(!e.estaVivo()){
                 continue;
             }
-            if(e.getX() <= limiteIzq || e.getX() >= limiteDer){
+            if(movimientoDerecha && e.getX() >= limiteDer){
+                tocaBorde = true;
+            }
+            if(!movimientoDerecha && e.getX() <= limiteIzq){
                 tocaBorde = true;
             }
         }  

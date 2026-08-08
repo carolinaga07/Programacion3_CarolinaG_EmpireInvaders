@@ -1,8 +1,11 @@
 package View;
 
+import java.util.List;
+
 import Model.Enemigo;
 import Model.FormacionEnemigo;
 import Model.Jugador;
+import Model.Rayo;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
@@ -18,16 +21,28 @@ public class SpritesJuego {
         this.fondoOffsetY = 0;
     }
 
-    public void render(GraphicsContext gc, Jugador jugador, FormacionEnemigo formacion, int puntaje, int vidas){
+    public void render(GraphicsContext gc, Jugador jugador, FormacionEnemigo formacion, List<Rayo> rayoJugador, List<Rayo> rayoEnemigo, int puntaje, int vidas){
         double ancho = gc.getCanvas().getWidth();
         double alto = gc.getCanvas().getHeight();
 
         dibujarFondo(gc, ancho, alto);
         dibujarJugador(gc, jugador);
         dibujarEnemigos(gc, formacion);
+        dibujarRayos(gc, rayoJugador, rayoEnemigo);
       
 
 
+    }
+
+    private void dibujarRayos(GraphicsContext gc, List<Rayo> rayoJugador, List<Rayo> rayoEnemigo){
+        gc.setFill(Color.YELLOW);
+        for(Rayo r: rayoJugador){
+            gc.fillRect(r.getX(), r.getY(), 5, 10);
+        }
+        gc.setFill(Color.ORANGE);
+        for(Rayo r: rayoEnemigo){
+            gc.fillRect(r.getX(), r.getY(), 5, 10);
+        }
     }
 
     private void dibujarTablaP(GraphicsContext gc, int puntaje, int vidas) {

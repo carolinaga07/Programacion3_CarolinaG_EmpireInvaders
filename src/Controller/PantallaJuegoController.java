@@ -4,6 +4,7 @@ import Engine.FuncionamientoJuego;
 import Model.Jugador;
 import Model.Niveles;
 import View.SpritesJuego;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Label;
@@ -46,19 +47,20 @@ public class PantallaJuegoController {
 
         rootPane.setOnKeyPressed(this::manejarTeclaPresionada);
         rootPane.setOnKeyReleased(this::manejarTeclaSoltada);
+        rootPane.setFocusTraversable(true);
 
-        rootPane.requestFocus();
+        Platform.runLater(() -> rootPane.requestFocus());
         funcionamientoJuego.start();
         
     }
 
     private void manejarTeclaPresionada(javafx.scene.input.KeyEvent evento){
         if (evento.getCode() == KeyCode.LEFT){
-            teclaIzq = false;
+            teclaIzq = true;
         }
 
         if(evento.getCode() == KeyCode.RIGHT){
-            teclaDer = false;
+            teclaDer = true;
         }
 
         if(evento.getCode() == KeyCode.SPACE){
