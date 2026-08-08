@@ -11,7 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
-import java.io.File;
+
 
 public class PantallaJuegoController {
 

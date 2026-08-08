@@ -18,7 +18,7 @@
             <Image url="@../Resources/img/logoEmpireInvaders.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="ivEnemigo1" fitHeight="83.0" fitWidth="54.0" layoutX="259.0" layoutY="299.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ivEnemigo1" fitHeight="83.0" fitWidth="54.0" layoutX="224.0" layoutY="299.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Resources/img/IMG_0279.png" />
          </image>
@@ -28,12 +28,12 @@
             <Font name="Monospaced Regular" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblBoton" layoutX="327.0" layoutY="315.0" text="Iniciar Juego" textFill="WHITE">
+      <Label fx:id="lblBoton" layoutX="314.0" layoutY="314.0" text="Iniciar Juego" textFill="WHITE">
          <font>
             <Font name="Courier New" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblBoton2" layoutX="370.0" layoutY="380.0" text="Salir" textFill="WHITE">
+      <Label fx:id="lblBoton2" layoutX="357.0" layoutY="374.0" text="Salir" textFill="WHITE">
          <font>
             <Font name="Courier New" size="18.0" />
          </font>

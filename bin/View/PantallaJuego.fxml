@@ -7,6 +7,7 @@
 
 <AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="486.0" prefWidth="734.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PantallaJuegoController">
    <children>
+      <Canvas fx:id="canvaJuego" height="496.0" layoutY="-3.0" width="734.0" />
       <Label layoutX="67.0" layoutY="22.0" text="Puntaje:" textFill="WHITE">
          <font>
             <Font name="Monospaced Regular" size="14.0" />
@@ -19,7 +20,7 @@
          <font>
             <Font size="14.0" />
          </font></Label>
-      <Label fx:id="lblPuntaje" layoutX="122.0" layoutY="22.0" text="Label" textFill="WHITE">
+      <Label fx:id="lblPuntaje" layoutX="150.0" layoutY="20.0" text="Label" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
@@ -34,6 +35,5 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Canvas fx:id="canvaJuego" height="493.0" width="734.0" />
    </children>
 </AnchorPane>
