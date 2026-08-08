@@ -37,7 +37,7 @@ public class PantallaJuegoController {
 
 
     @FXML void initialize(){
-        jugador = new Jugador(347, 445);
+        jugador = new Jugador(302, 360);
 
         Image fondo = new Image( getClass().getResourceAsStream ("/Resources/img/fondojuego.jpg"));
         Image jugadorGif = new Image(getClass().getResourceAsStream("/Resources/img/milleniumFalcon.gif"));

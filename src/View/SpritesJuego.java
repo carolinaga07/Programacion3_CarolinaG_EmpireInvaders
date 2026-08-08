@@ -36,8 +36,8 @@ public class SpritesJuego {
         this.vistaEnemigos = new HashMap<>();
 
         jugadorView = new ImageView(jugadorGif);
-        jugadorView.setFitWidth(90);
-        jugadorView.setFitHeight(90);
+        jugadorView.setFitWidth(135);
+        jugadorView.setFitHeight(135);
         pane.getChildren().add(jugadorView);
     }
 
@@ -93,13 +93,13 @@ public class SpritesJuego {
                 double tamano;
                 if(e.esJefe()){
                     gif = jefeGif;
-                    tamano = 150;
+                    tamano = 200;
                 }else if(indice % 2 == 0){
                     gif = enemigo1Gif;
-                    tamano = 60;
+                    tamano = 55;
                 }else{
                     gif = enemigo2Gif;
-                    tamano = 60;
+                    tamano = 55;
                 }
                 vista = new ImageView(gif);
                 vista.setFitWidth(tamano);
