@@ -37,6 +37,9 @@ public class PantallaDerrotaController {
 
         Image estrella = new Image(getClass().getResourceAsStream("/Resources/img/estrelladelamuerteCompleta.gif"));
         IVEstrella.setImage(estrella);
+
+        Image lblDerrota = new Image(getClass().getResourceAsStream("/Resources/img/lblDerrota.png"));
+        IVlblDerrota.setImage(lblDerrota);
     }
 
     public void setPuntaje(int puntaje){

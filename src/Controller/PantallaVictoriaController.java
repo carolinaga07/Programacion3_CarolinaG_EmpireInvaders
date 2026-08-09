@@ -31,6 +31,9 @@ public class PantallaVictoriaController {
 
         Image nave = new Image(getClass().getResourceAsStream("/Resources/img/milleniumFalcom.gif"));
         IVNave.setImage(nave);
+
+        Image lblVictoria = new Image(getClass().getResourceAsStream("/Resources/img/lblVictoria.png"));
+        IVvictoria.setImage(lblVictoria);
     }
 
     public void setPuntaje(int puntaje){

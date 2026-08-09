@@ -3,7 +3,9 @@ package Engine;
 import java.util.ArrayList;
 import java.util.List;
 
+import Controller.PantallaDerrotaController;
 import Controller.PantallaJuegoController;
+import Controller.PantallaVictoriaController;
 import Model.Enemigo;
 import Model.FormacionEnemigo;
 import Model.Jugador;
@@ -13,9 +15,13 @@ import Utils.ArchivoUtil;
 import View.SpritesJuego;
 import javafx.animation.AnimationTimer;
 import javafx.application.Platform;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.stage.Stage;
 
 public class FuncionamientoJuego extends AnimationTimer {
 
@@ -87,7 +93,7 @@ public class FuncionamientoJuego extends AnimationTimer {
 
         if(!jugador.estarVivo()){
             stop();
-            ///pantalla de game over
+            mostrarGameOver();
         }
     }
 
@@ -165,11 +171,53 @@ public class FuncionamientoJuego extends AnimationTimer {
             formacion = niveles.Formaciones(50, 50);
         }else{
             stop();
+            mostrarVictoria();
             
         }
 
        
     } 
+
+    private void mostrarGameOver(){
+        Platform.runLater(() ->{
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/PantallaDerrota.fxml"));
+                Parent root = loader.load();
+
+                PantallaDerrotaController controller = loader.getController();
+                controller.setPuntaje(puntaje);
+
+                Stage stage = new Stage();
+                stage.setTitle("Juego Finalizado");
+                stage.setScene(new Scene(root));
+                stage.show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+
+    private void mostrarVictoria(){
+        Platform.runLater(() ->{
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/PantallaVictoria.fxml"));
+                Parent root = loader.load();
+
+                PantallaVictoriaController controller = loader.getController();
+                controller.setPuntaje(puntaje);
+
+                Stage stage = new Stage();
+                stage.setTitle("Juego Ganado");
+                stage.setScene(new Scene(root));
+                stage.show();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+    }
+   
    
 
 }
