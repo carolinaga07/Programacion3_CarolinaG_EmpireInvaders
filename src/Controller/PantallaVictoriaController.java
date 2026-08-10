@@ -29,7 +29,7 @@ public class PantallaVictoriaController {
         Image fondo = new Image(getClass().getResourceAsStream("/Resources/img/fondoVictoria.jpg"));
         IVFondoV.setImage(fondo);
 
-        Image nave = new Image(getClass().getResourceAsStream("/Resources/img/milleniumFalcom.gif"));
+        Image nave = new Image(getClass().getResourceAsStream("/Resources/img/milleniumFalcon.gif"));
         IVNave.setImage(nave);
 
         Image lblVictoria = new Image(getClass().getResourceAsStream("/Resources/img/lblVictoria.png"));

@@ -109,7 +109,7 @@ public class SpritesJuego {
                 double tamano;
                 if(e.esJefe()){
                     gif = jefeGif;
-                    tamano = 200;
+                    tamano = 185;
                 }else if(indice % 2 == 0){
                     gif = enemigo1Gif;
                     tamano = 45;

@@ -38,6 +38,6 @@
          </font>
       </Label>
       <Label fx:id="lblPuntajeFinal" layoutX="134.0" layoutY="132.0" text="Label" />
-      <Button fx:id="btnVolver" layoutX="100.0" layoutY="164.0" mnemonicParsing="false" text="Volver al menu" textFill="#271982" />
+      <Button fx:id="btnVolver" layoutX="100.0" layoutY="164.0" mnemonicParsing="false" onAction="#volverAlMenu" text="Volver al menu" textFill="#271982" />
    </children>
 </AnchorPane>
