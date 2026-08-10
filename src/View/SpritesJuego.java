@@ -8,13 +8,11 @@ import Model.Enemigo;
 import Model.FormacionEnemigo;
 import Model.Jugador;
 import Model.Rayo;
-import javafx.animation.PauseTransition;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
-import javafx.util.Duration;
 
 
 public class SpritesJuego {
@@ -28,7 +26,7 @@ public class SpritesJuego {
     private Image enemigo2Gif;
     private Image jefeGif;
     private Image jefeDestruidoGif;
-    private Map<Enemigo, ImageView> vistaEnemigos;
+    private Map<Enemigo, ImageView> vistaEnemigos; // asocia cada objeto a su imageView para saber cual mover o eliminar
 
     public SpritesJuego(Image fondo, Image jugadorGif, Image enemigo1Gif, Image enemigo2Gif, Image jefeGif, Image jefeDestruidoGif, AnchorPane pane){
         this.fondo = fondo;
@@ -69,7 +67,7 @@ public class SpritesJuego {
         }
     }
 
-    private void dibujarFondo(GraphicsContext gc, double ancho, double alto) {
+    private void dibujarFondo(GraphicsContext gc, double ancho, double alto) { //dibuja las imagenes juntas una arriba de la otra y las mueve juntas hacia abajo 
         fondoOffsetY += velocidadF;
         if(fondoOffsetY >= alto){
             fondoOffsetY = 0;
@@ -79,14 +77,14 @@ public class SpritesJuego {
         gc.drawImage(fondo, 0, fondoOffsetY, ancho, alto);
     }
 
-    public void limpiarVistaEnemigos(){
+    public void limpiarVistaEnemigos(){ //solucion a que queden enemigos en pantalla al dispararles
         for(ImageView vista : vistaEnemigos.values()){
             pane.getChildren().remove(vista);
         }
         vistaEnemigos.clear();
     }
 
-    private void actualizarVistaEnemigos(FormacionEnemigo formacion){
+    private void actualizarVistaEnemigos(FormacionEnemigo formacion){ //recorre los invasores de la formacion , si esta vivo y no tiene una Image view crea una y se la asigna.
         int indice = 0;
         for(Enemigo e: formacion.getEnemigos()){
             if(!e.estaVivo()){
@@ -107,7 +105,7 @@ public class SpritesJuego {
             if(vista == null){
                 Image gif;
                 double tamano;
-                if(e.esJefe()){
+                if(e.esJefe()){ //configura el gif y el tamano de los enemigos
                     gif = jefeGif;
                     tamano = 185;
                 }else if(indice % 2 == 0){
@@ -117,13 +115,13 @@ public class SpritesJuego {
                     gif = enemigo2Gif;
                     tamano = 45;
                 }
-                vista = new ImageView(gif);
+                vista = new ImageView(gif); // si no tiene imageview la crea y guarda su posicion
                 vista.setFitWidth(tamano);
                 vista.setFitHeight(tamano);
                 vistaEnemigos.put(e, vista);
                 pane.getChildren().add(vista);
             }
-            vista.setLayoutX(e.getX());
+            vista.setLayoutX(e.getX()); //actualiza su posicion 
             vista.setLayoutY(e.getY());
             indice++;
         }

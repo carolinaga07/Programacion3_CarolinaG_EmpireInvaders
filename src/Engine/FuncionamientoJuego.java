@@ -58,7 +58,7 @@ public class FuncionamientoJuego extends AnimationTimer {
 
 
     @Override
-    public void handle(long now) {
+    public void handle(long now) { //es llamado muchas veces, mueve al jugador, actualiza toda la logica, dibuja todo y refrezca los medidores
         moverJugador();
         actualizar(now);
         sprites.render(gc, jugador, formacion, RayosJugador, RayoEnemigo, puntaje, jugador.getVidas());
@@ -66,11 +66,11 @@ public class FuncionamientoJuego extends AnimationTimer {
         
     }
 
-    public void dispararJugador(){
+    public void dispararJugador(){ // crea un rayo en el centro de la nave con negativo(sube) cada vez que se presiona space
         RayosJugador.add(new Rayo(jugador.getX() + 65, jugador.getY(), -6, false));
     }
 
-    private void moverJugador(){
+    private void moverJugador(){ // es lo que le da fluidez al movimiento del jugador
         if(controller.esTeclaIzq()){
             jugador.moverIzquierda();
         }
@@ -106,7 +106,7 @@ public class FuncionamientoJuego extends AnimationTimer {
         }
     }
 
-    private void dispararInvasores(long now){
+    private void dispararInvasores(long now){ //cada segundo recorre todos los invasores vivos y cada uno tiene un 2% de probabilidad de disparo, para que sean aleatorios
         if(now - ultimoDisparoE < 1_000_000_000){
             return;
         }
@@ -118,14 +118,14 @@ public class FuncionamientoJuego extends AnimationTimer {
         ultimoDisparoE = now;
     }
 
-    private void detectarColisiones(){
+    private void detectarColisiones(){ // compara cada bala del jugador contra invasor vivo, si hay colision se elimina vida y suma puntaje
         for(Rayo rayo : RayosJugador){
             for(Enemigo e : formacion.getEnemigos()){
                 if(e.estaVivo() && ArchivoUtil.colision(rayo, e)){
                     e.RecibirDanio();
                     rayo.desactivar();
                     if(!e.estaVivo()){
-                        puntaje += e.esJefe() ? 100 : 10;
+                        puntaje += e.esJefe() ? 100 : 10; // suam mas puntaje si es jefe
                     }
                 }
             }
@@ -133,7 +133,7 @@ public class FuncionamientoJuego extends AnimationTimer {
 
         for(Rayo rayo: RayoEnemigo){
             if(ArchivoUtil.colision(rayo, jugador)){
-                jugador.perderVida();
+                jugador.perderVida(); // si colisionan los rayos enemigos con el jugador se pierde vida 
                 rayo.desactivar();
             }
         }
@@ -142,7 +142,7 @@ public class FuncionamientoJuego extends AnimationTimer {
     }
 
 
-    private void limpiarRayos(){
+    private void limpiarRayos(){ // se construye lista con rayos activos y en la pantalla , descartando las que impactaron algo o salieron de la pantalla
             List<Rayo> rayosJugadorA = new ArrayList<>();
             for(Rayo r : RayosJugador){
                if(r.estaActivo() && r.getY() >= 0){
@@ -160,7 +160,7 @@ public class FuncionamientoJuego extends AnimationTimer {
             RayoEnemigo = rayosEnemigoA;
     }
 
-    private void revisarFindeOleada(){
+    private void revisarFindeOleada(){ // si hay mas niveles u oleadas reemplaza los sprites antiguos por los nuevos y si no muestra la pantalla victoria
         if(formacion.quedanVivos()){
             return;
         }
@@ -178,14 +178,14 @@ public class FuncionamientoJuego extends AnimationTimer {
     } 
 
     private void mostrarGameOver(){
-        Platform.runLater(() ->{
+        Platform.runLater(() ->{ // para poder abrir la ventana  dentro del ciclo animacion
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/PantallaDerrota.fxml"));
                 Parent root = loader.load();
 
                 PantallaDerrotaController controller = loader.getController();
                 controller.setPuntaje(puntaje);
-                controller.setStageJuego((Stage) gc.getCanvas().getScene().getWindow());
+                controller.setStageJuego((Stage) gc.getCanvas().getScene().getWindow()); // para que reemplaze la pantalla en vez de abrir una nueva 
 
                 Stage stage = new Stage();
                 stage.setTitle("Juego Finalizado");
@@ -219,7 +219,7 @@ public class FuncionamientoJuego extends AnimationTimer {
         });
     }
 
-    private void revisarInvasoresLlegaronAlJugador(){
+    private void revisarInvasoresLlegaronAlJugador(){  // lo que evalua si un invazor llega a la linea de altura del jugador
         for(Enemigo e : formacion.getEnemigos()){
             if(e.estaVivo() && e.getY() + 30 >= jugador.getY()){
                 stop();
