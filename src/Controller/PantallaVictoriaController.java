@@ -5,6 +5,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class PantallaVictoriaController {
@@ -25,6 +28,10 @@ public class PantallaVictoriaController {
     private Label lblPuntajeFinal;
 
     private Stage stageJuego;
+
+    @FXML
+    private AnchorPane rootPane;
+
     
     @FXML
     private void initialize(){
@@ -36,6 +43,21 @@ public class PantallaVictoriaController {
 
         Image lblVictoria = new Image(getClass().getResourceAsStream("/Resources/img/lblVictoria.png"));
         IVvictoria.setImage(lblVictoria);
+
+        btnVolver.setDefaultButton(false);
+        rootPane.addEventFilter(KeyEvent.KEY_PRESSED, evento -> {
+            if(evento.getCode() == KeyCode.SPACE){
+                evento.consume();
+            }
+        });
+
+        rootPane.addEventFilter(KeyEvent.KEY_RELEASED, evento -> {
+            if(evento.getCode() == KeyCode.SPACE){
+                evento.consume();
+            }
+        });
+
+
     }
 
     public void setPuntaje(int puntaje){

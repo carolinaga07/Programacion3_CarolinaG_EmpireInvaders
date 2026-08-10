@@ -20,7 +20,7 @@ public class Enemigo {
 
     }
 
-    public void RecibirDanio(){
+    public void RecibirDanio(){ // lo que consulta FuncionamientoJuego para eliminar el sprite
         vida--;
         if(vida <= 0){
             vivo = false;
@@ -43,7 +43,7 @@ public class Enemigo {
         this.vida = vida;
     }
 
-    public boolean esJefe(){
+    public boolean esJefe(){ //metodo que Jefe sobreescribe para identificarse
         return false;
     }
 

@@ -12,7 +12,7 @@ public class Niveles {
       this.oleadaActual = 1;
    }
 
-   private int maxOleadas(int nivel){
+   private int maxOleadas(int nivel){ //define cuanta oleadas va a tener cada nivel
     if(nivel == 3){
         return 3;
     }
@@ -20,15 +20,15 @@ public class Niveles {
    }
 
 
-   public FormacionEnemigo Formaciones(double xInicial, double yInicial){
+   public FormacionEnemigo Formaciones(double xInicial, double yInicial){ //decide la formacion a crear es decir cuanto enemigos tendra
 
-       if (nivelActual == 3 && oleadaActual == 2){
+       if (nivelActual == 3 && oleadaActual == 2){ //revisa si la oleada actual es la del jefe
         List<Enemigo> jefe = new ArrayList<>();
         jefe.add(new Jefe(xInicial, yInicial));
         return new FormacionEnemigo(jefe);
 
        }
-       switch (nivelActual) {
+       switch (nivelActual) {  // determina el tamano de la cuadricula
         case 1:
             return new FormacionEnemigo(3, 6, 50, 40, xInicial, yInicial);
         case 2:
@@ -41,7 +41,7 @@ public class Niveles {
        }
    }
 
-   public void siguienteOleada(){
+   public void siguienteOleada(){  // contabiliza las oleadas de cada nivel para conocer cuando pasar a la sigte
     if(oleadaActual < maxOleadas(nivelActual)){
         oleadaActual++;
     } else {
@@ -62,7 +62,7 @@ public class Niveles {
     return nivelActual;
    }
 
-   public boolean hayMasNiveles(){
+   public boolean hayMasNiveles(){ // dispara la pantalla de victoria
       return nivelActual < 3 || (nivelActual == 3 && oleadaActual < 2);
    }
 }

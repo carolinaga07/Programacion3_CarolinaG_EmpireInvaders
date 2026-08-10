@@ -2,6 +2,10 @@ package Model;
 
 public class Rayo {
 
+//*lo denomine Rayo porque en StarWars las naves usan rayos lasers 
+// tambien en el codigo se usa una sola clase de Rayo para ambos
+//  ya que lo que cambia es la dirreccion*/ 
+
     private double x;
     private double y;
     private double velocidad;
@@ -20,7 +24,7 @@ public class Rayo {
         y += velocidad;
     }
 
-    public void desactivar(){
+    public void desactivar(){ //cuando choca con algo se desactiva
         activo = false;
     }
 
