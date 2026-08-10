@@ -1,23 +1,25 @@
-<<<<<<< HEAD
-## Getting Started
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
-
-## Folder Structure
-
-The workspace contains two folders by default, where:
-
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
-=======
 # Programacion3_CarolinaG_EmpireInvaders
 juego
->>>>>>> 493165262c86fc27fd1a25384c8c5158b30336d4
+
+Empire Invaders
+
+Estudiante: Carolina García Almanzar
+Matricula: 10005906
+
+Descripción:
+
+Empire Invaders es una versión de Space Invaders desarrollada en Java con JavaFX y FXML, ambientada en el universo de Star Wars. El jugador controla el Millennium Falcon y debe enfrentar tres niveles de oleadas de invasores del Imperio (TIE Fighters), culminando en un enfrentamiento contra un jefe final: la Estrella de la Muerte. El juego incluye sistema de vidas, puntaje, formaciones enemigas con movimiento y descenso progresivo, disparo enemigo aleatorio, colisiones detectadas manualmente, y pantallas de victoria y derrota.
+
+Controles:
+
+- Flecha izquierda: mover la nave a la izquierda
+- Flecha derecha: mover la nave a la derecha
+- Barra espaciadora: disparar
+
+Estructura del juego:
+
+- 3 niveles, cada uno con 2 oleadas de invasores, excepto el nivel final que tiene 3 oleadas (la última es el enfrentamiento contra el jefe).
+- El jugador inicia con 4 vidas.
+- El juego termina en derrota si se agotan las vidas o si algún invasor llega a la línea de la nave del jugador.
+- El juego termina en victoria al derrotar al jefe final del nivel 3.
