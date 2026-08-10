@@ -87,6 +87,7 @@ public class FuncionamientoJuego extends AnimationTimer {
         detectarColisiones();
         limpiarRayos();
         revisarFindeOleada();
+        revisarInvasoresLlegaronAlJugador();
 
 
         if(!jugador.estarVivo()){
@@ -184,6 +185,7 @@ public class FuncionamientoJuego extends AnimationTimer {
 
                 PantallaDerrotaController controller = loader.getController();
                 controller.setPuntaje(puntaje);
+                controller.setStageJuego((Stage) gc.getCanvas().getScene().getWindow());
 
                 Stage stage = new Stage();
                 stage.setTitle("Juego Finalizado");
@@ -204,6 +206,7 @@ public class FuncionamientoJuego extends AnimationTimer {
 
                 PantallaVictoriaController controller = loader.getController();
                 controller.setPuntaje(puntaje);
+                controller.setStageJuego((Stage) gc.getCanvas().getScene().getWindow());
 
                 Stage stage = new Stage();
                 stage.setTitle("Juego Ganado");
@@ -214,6 +217,16 @@ public class FuncionamientoJuego extends AnimationTimer {
                 e.printStackTrace();
             }
         });
+    }
+
+    private void revisarInvasoresLlegaronAlJugador(){
+        for(Enemigo e : formacion.getEnemigos()){
+            if(e.estaVivo() && e.getY() + 30 >= jugador.getY()){
+                stop();
+                mostrarGameOver();
+                return;
+            }
+        }
     }
    
    

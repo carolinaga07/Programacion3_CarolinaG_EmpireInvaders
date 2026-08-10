@@ -6,6 +6,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class PantallaDerrotaController {
@@ -28,6 +31,12 @@ public class PantallaDerrotaController {
     @FXML
     private Label lblPuntajeAlcanzado;
 
+     @FXML
+    private AnchorPane rootPane;
+
+    private Stage stageJuego;
+
+
 
        
     @FXML
@@ -40,6 +49,24 @@ public class PantallaDerrotaController {
 
         Image lblDerrota = new Image(getClass().getResourceAsStream("/Resources/img/lblDerrota.png"));
         IVlblDerrota.setImage(lblDerrota);
+
+        btnVolver.setDefaultButton(false);
+
+        rootPane.addEventFilter(KeyEvent.KEY_PRESSED, evento ->{
+            if(evento.getCode() == KeyCode.SPACE){
+                evento.consume();
+            }
+
+        });
+
+        rootPane.addEventFilter(KeyEvent.KEY_RELEASED, evento ->{
+            if(evento.getCode() == KeyCode.SPACE){
+                evento.consume();
+            }
+
+        });
+
+        
     }
 
     public void setPuntaje(int puntaje){
@@ -49,13 +76,23 @@ public class PantallaDerrotaController {
     @FXML
     private void volverAlMenu(){
         Stage stage = (Stage) btnVolver.getScene().getWindow();
+        if(stageJuego != null){
+            stageJuego.close();
+        }
         Navegacion.cambiarEscena("/View/PantallaPrincipal.fxml", "Empire Invaders", stage);
     }
 
     @FXML
     private void reiniciarJuego(){
         Stage stage = (Stage) btnReiniciar.getScene().getWindow();
+        if(stageJuego != null){
+            stageJuego.close();
+        }
         Navegacion.cambiarEscena("/View/PantallaJuego.fxml", "Empire Invaders", stage);
+    }
+
+    public void setStageJuego(Stage stageJuego){
+        this.stageJuego = stageJuego;
     }
     
 }

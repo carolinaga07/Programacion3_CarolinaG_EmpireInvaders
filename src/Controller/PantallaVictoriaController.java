@@ -23,6 +23,8 @@ public class PantallaVictoriaController {
 
     @FXML
     private Label lblPuntajeFinal;
+
+    private Stage stageJuego;
     
     @FXML
     private void initialize(){
@@ -43,6 +45,13 @@ public class PantallaVictoriaController {
     @FXML
     private void volverAlMenu(){
         Stage stage = (Stage) btnVolver.getScene().getWindow();
+        if(stageJuego != null){
+            stageJuego.close();
+        }
         Navegacion.cambiarEscena("/View/PantallaPrincipal.fxml", "Empire Invaders", stage);
+    }
+
+    public void setStageJuego(Stage stageJuego){
+        this.stageJuego = stageJuego;
     }
 }
